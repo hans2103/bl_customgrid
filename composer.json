@@ -1,0 +1,14 @@
+{
+  "name": "bl/cuystomgrid",
+  "type": "magento-module",
+  "homepage": "https://github.com/hans2103/bl_customgrid",
+  "description": "BL Customgrid",
+  "authors": [
+    {
+      
+    }
+  ],
+  "require": {
+    
+  }
+}

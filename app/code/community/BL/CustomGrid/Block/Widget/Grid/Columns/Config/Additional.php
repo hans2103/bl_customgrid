@@ -45,7 +45,7 @@ class BL_CustomGrid_Block_Widget_Grid_Columns_Config_Additional
     {
         return $this->_getCommonActionButtonHtml(
             $htmlId,
-            $this->getUrl('customgrid/custom_grid/saveCustomColumns')
+            $this->getUrl('adminhtml/blcg_custom_grid/saveCustomColumns')
         );
     }
     
@@ -53,7 +53,7 @@ class BL_CustomGrid_Block_Widget_Grid_Columns_Config_Additional
     {
         return $this->_getCommonActionButtonHtml(
             $htmlId,
-            $this->getUrl('customgrid/custom_grid/saveDefault')
+            $this->getUrl('adminhtml/blcg_custom_grid/saveDefault')
         );
     }
     
@@ -140,5 +140,17 @@ class BL_CustomGrid_Block_Widget_Grid_Columns_Config_Additional
     public function getExportTypes()
     {
         return $this->getGridModel()->getExportTypes();
+    }
+    
+    public function getExportAdditionalParams()
+    {
+        $params = array();
+        
+        if (($block = $this->getGridBlock())
+            && ($massactionBlock = $block->getMassactionBlock())) {
+            $params[$massactionBlock->getFormFieldNameInternal()] = $massactionBlock->getSelectedJson();
+        }
+        
+        return $params;
     }
 }

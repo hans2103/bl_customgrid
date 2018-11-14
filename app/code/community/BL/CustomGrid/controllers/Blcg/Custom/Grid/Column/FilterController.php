@@ -13,7 +13,7 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class BL_CustomGrid_Custom_Grid_Column_FilterController
+class BL_CustomGrid_Blcg_Custom_Grid_Column_FilterController
     extends Mage_Adminhtml_Controller_Action
 {
     public function categoriesAction()
@@ -36,5 +36,10 @@ class BL_CustomGrid_Custom_Grid_Column_FilterController
                 ->setCategoryIds(array_unique(explode(',', $this->getRequest()->getParam('ids', null))))
                 ->getCategoryChildrenJson($this->getRequest()->getParam('category'))
         );
+    }
+    
+    protected function _isAllowed()
+    {
+        return true;
     }
 }
